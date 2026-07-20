@@ -6,7 +6,7 @@ Trabajo final del curso **EPG4006 – Modelos Lineales Generalizados**, Pontific
 
 ---
 
-## 📌 Objetivo del proyecto
+## Objetivo del proyecto
 
 Modelar el **número de ventas por mes** de Monarca como una variable de conteo, con el fin de:
 
@@ -18,7 +18,7 @@ Se comparan dos modelos de la familia de conteo —**Poisson** y **Binomial Nega
 
 ---
 
-## 📊 Descripción de la base de datos
+## Descripción de la base de datos
 
 La base proviene del registro operativo real de ventas de Monarca. **Los datos han sido anonimizados**: los nombres de clientes, destinatarios, vendedores, domiciliarios y empresas fueron reemplazados por códigos genéricos (`CLI_XXXX`, `VEND_XXXX`, `DOM_XXXX`, `EMP_XXXX`), y se eliminó cualquier dato de contacto o dirección identificable.
 
@@ -60,7 +60,7 @@ A partir de las transacciones se agregó la **serie mensual**:
 
 ---
 
-## 🧮 Metodología
+## Metodología
 
 El conteo mensual de ventas se modela con un GLM de enlace logarítmico:
 
@@ -79,7 +79,7 @@ log(E[ventas]) = β₀ + β₁·t + Σ γₖ·mes_especialₖ
 
 ---
 
-## 📈 Principales resultados
+## Principales resultados
 
 - Los datos presentan **sobredispersión** (varianza ≫ media), por lo que la Poisson resulta insuficiente y la **Binomial Negativa** se selecciona como modelo final (menor AIC).
 - Existe una **tendencia creciente significativa**: el negocio aumenta su volumen de ventas de forma sostenida en el periodo analizado.
@@ -88,65 +88,24 @@ log(E[ventas]) = β₀ + β₁·t + Σ γₖ·mes_especialₖ
 
 ---
 
-## 📁 Estructura del repositorio
+## Estructura del repositorio
 
 ```
 EPG4006/
 ├── README.md
 ├── data/
-│   ├── PRODUCTOS_RELANZAMIENTO_Monarca_ANONIMIZADO.xlsx   # base anonimizada
-│   └── monarca_mensual.csv                                 # serie mensual agregada
-├── notebooks/
-│   └── Proyecto_GLM_Monarca_Poisson.ipynb                  # análisis completo
-└── report/
-    └── Proyecto_GLM_Monarca_Poisson.pdf                    # informe en PDF
+│   ├── ventasTiendaVirtual.xlsx   # base anonimizada
+│   └── monarca_mensual.csv        # serie mensual agregada
+
 ```
 
 *(Ajusta las rutas según cómo subas los archivos.)*
 
 ---
 
-## ▶️ Cómo reproducir el análisis
+]
 
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/<usuario>/EPG4006.git
-   cd EPG4006
-   ```
-2. Instalar las dependencias:
-   ```bash
-   pip install pandas numpy matplotlib seaborn statsmodels
-   ```
-3. Abrir y ejecutar el notebook:
-   ```bash
-   jupyter notebook notebooks/Proyecto_GLM_Monarca_Poisson.ipynb
-   ```
 
-El notebook usa una **semilla fija** (`SEED = 42`) para garantizar la reproducibilidad de los resultados.
-
----
-
-## 🛠️ Dependencias
-
-| Librería | Uso | Enlace |
-|---|---|---|
-| pandas | Manipulación de datos | https://pandas.pydata.org |
-| numpy | Cálculo numérico | https://numpy.org |
-| matplotlib | Gráficos | https://matplotlib.org |
-| seaborn | Visualización estadística | https://seaborn.pydata.org |
-| statsmodels | Ajuste de GLM (Poisson y Binomial Negativa) | https://www.statsmodels.org |
-
----
-
-## 📚 Referencias
-
-- Cameron, A. C., & Trivedi, P. K. (2013). *Regression Analysis of Count Data* (2nd ed.). Cambridge University Press.
-- Hilbe, J. M. (2011). *Negative Binomial Regression* (2nd ed.). Cambridge University Press.
-- McCullagh, P., & Nelder, J. A. (1989). *Generalized Linear Models* (2nd ed.). Chapman & Hall.
-- Nelder, J. A., & Wedderburn, R. W. M. (1972). Generalized Linear Models. *Journal of the Royal Statistical Society, Series A*, 135(3), 370–384.
-- Seabold, S., & Perktold, J. (2010). statsmodels: Econometric and statistical modeling with Python. *Proceedings of the 9th Python in Science Conference*.
-
----
 
 ## ⚠️ Nota sobre privacidad
 
